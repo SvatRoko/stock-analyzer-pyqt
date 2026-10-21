@@ -5,7 +5,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 import yfinance as yf
 
-class FinApp(QWidget):
+class pyqt5_interface(QWidget):
     def __init__(self):
         super().__init__()
         self.figure, self.ax = plt.subplots(figsize=(12, 6))
@@ -37,7 +37,7 @@ class FinApp(QWidget):
         self.setLayout(self.layout)
         self.show()
 
-    def plot_data(self):
+    def show_data(self):
         stock = self.input_ticker.text()
         start_date = self.date_start.date().toString("yyyy-MM-dd")
         end_date = self.date_end.date().toString("yyyy-MM-dd")
@@ -67,5 +67,5 @@ class FinApp(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    ex = FinApp()
+    ex = pyqt5_interface()
     sys.exit(app.exec_())
